@@ -5,11 +5,13 @@ import ConfirmButton from "../../GenericComponents/Button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function SignInPage() {
+  let navigate = useNavigate();
 
   const [loading, setLoading] = useState(false)
 
@@ -33,17 +35,19 @@ export default function SignInPage() {
   }
 
   function requestSuccess(answer) {
-    console.log(answer)
+    console.log(answer.data)
     setLoading(false)
+    navigate("/hoje")
+
   }
 
   function requestFail(answer) {
-    console.log(answer)
-    notify()
+    console.log(answer.response.status)
+    notify("email e/ou senha incorreto, por favor tente novamente")
     setLoading(false)
   }
 
-  const notify = () => toast.error('Falha no LogIn, por favor tente novamente', {
+  const notify = (text) => toast.error(`${text}`, {
     position: "top-center",
     autoClose: 5000,
     hideProgressBar: false,

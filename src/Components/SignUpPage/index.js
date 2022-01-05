@@ -5,12 +5,17 @@ import ConfirmButton from "../../GenericComponents/Button";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 
 
 
 
 export default function SignUpPage() {
+
+  let navigate = useNavigate();
 
   const [loading, setLoading] = useState(false)
 
@@ -21,9 +26,41 @@ export default function SignUpPage() {
     password: ""
   })
 
-  function logUp() {
+  function logUp(event) {
+
+    event.preventDefault()
+
+    setLoading(true)
+
+    const request = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/sign-up", signUpObj)
+
+    request.then(requestSuccess);
+
+    request.catch(requestFail)
 
   }
+
+  function requestSuccess(answer) {
+    navigate("/")
+
+    setLoading(false)
+  }
+
+  function requestFail(answer) {
+    console.log(answer.response.status)
+    notify("email ja cadastrado, por favor utilize outro e-mail para cadastro")
+    setLoading(false)
+  }
+
+  const notify = (text) => toast.error(`${text}`, {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
 
   return (
     <SignUp>
@@ -73,6 +110,17 @@ export default function SignUpPage() {
           Já tem uma conta? Faça login!
         </h1>
       </Link>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </SignUp>
   )
 

@@ -1,11 +1,8 @@
 import styled from "styled-components";
 import Loader from "react-loader-spinner";
-import { useState } from "react";
+
 
 export default function ConfirmButton(Props) {
-
-  const [active, setActive] = useState("")
-
 
   return (
     <ButtonStyled isLoading={Props.isLoading} type="submit" disabled={Props.isLoading}>
