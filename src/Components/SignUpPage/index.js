@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import LogoMark from "../../GenericComponents/LogoMark";
 import InputBox from "../../GenericComponents/Input";
-import ConfirmButton from "../../GenericComponents/Button";
+import ConfirmButton from "../../GenericComponents/ConfirmButton";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";

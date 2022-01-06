@@ -9,9 +9,6 @@ export default function Header() {
 
   const { token, setToken } = useContext(UserContext);
 
-  console.log(token)
-
-
   return (
     <HeaderStyled>
       <LogoType />
@@ -40,7 +37,7 @@ padding: 0px 18px;
 display: flex;
 align-items: center;
 justify-content: space-between;
-
+z-index:10;
 `
 
 const UserPicture = styled.div`

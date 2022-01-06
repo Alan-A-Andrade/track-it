@@ -7,6 +7,8 @@ import React, { useState, useContext } from "react";
 import SignInPage from "./Components/SignInPage";
 import SignUpPage from "./Components/SignUpPage";
 import TodayPage from "./Components/TodayPage";
+import HabitsPage from "./Components/HabitsPage";
+import HistoryPage from "./Components/HistoryPage";
 
 import UserContext from "./contexts/UserContext";
 
@@ -21,7 +23,9 @@ export default function App() {
           <Routes>
             <Route path="/" element={<SignInPage sessionToken={setToken} />}></Route>
             <Route path="/cadastro" element={<SignUpPage />}></Route>
-            <Route path="/:hoje" element={<TodayPage />}></Route>
+            <Route path="/hoje" element={<TodayPage />}></Route>
+            <Route path="/habitos" element={<HabitsPage />}></Route>
+            <Route path="/historico" element={<HistoryPage />}></Route>
           </Routes>
         </UserContext.Provider>
       </AppStyled>
