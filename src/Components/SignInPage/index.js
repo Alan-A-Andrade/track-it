@@ -3,15 +3,19 @@ import LogoMark from "../../GenericComponents/LogoMark";
 import InputBox from "../../GenericComponents/Input";
 import ConfirmButton from "../../GenericComponents/Button";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function SignInPage() {
+import UserContext from "../../contexts/UserContext";
+
+export default function SignInPage(Props) {
   let navigate = useNavigate();
+
+  const { token, setToken } = useContext(UserContext);
 
   const [loading, setLoading] = useState(false)
 
@@ -37,6 +41,7 @@ export default function SignInPage() {
   function requestSuccess(answer) {
     console.log(answer.data)
     setLoading(false)
+    setToken(answer.data)
     navigate("/hoje")
 
   }

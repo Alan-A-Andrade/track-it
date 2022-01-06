@@ -1,20 +1,31 @@
 import styled from "styled-components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./css/reset.css"
+import React, { useState, useContext } from "react";
 
 
 import SignInPage from "./Components/SignInPage";
 import SignUpPage from "./Components/SignUpPage";
+import TodayPage from "./Components/TodayPage";
+
+import UserContext from "./contexts/UserContext";
 
 export default function App() {
+
+  const [token, setToken] = useState([])
+
   return (
     <BrowserRouter>
       <AppStyled>
-        <Routes>
-          <Route path="/" element={<SignInPage />}></Route>
-          <Route path="/cadastro" element={<SignUpPage />}></Route>
-        </Routes>
+        <UserContext.Provider value={{ token, setToken }}>
+          <Routes>
+            <Route path="/" element={<SignInPage sessionToken={setToken} />}></Route>
+            <Route path="/cadastro" element={<SignUpPage />}></Route>
+            <Route path="/:hoje" element={<TodayPage />}></Route>
+          </Routes>
+        </UserContext.Provider>
       </AppStyled>
+
     </BrowserRouter >
   );
 }
