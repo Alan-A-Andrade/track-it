@@ -15,7 +15,7 @@ import UserContext from "../../contexts/UserContext";
 export default function SignInPage(Props) {
   let navigate = useNavigate();
 
-  const { token, setToken } = useContext(UserContext);
+  const { setToken } = useContext(UserContext);
 
   const [loading, setLoading] = useState(false)
 
@@ -39,12 +39,12 @@ export default function SignInPage(Props) {
   }
 
   function requestSuccess(answer) {
-    console.log(answer.data)
     setLoading(false)
     setToken(answer.data)
     navigate("/hoje")
 
   }
+
 
   function requestFail(answer) {
     console.log(answer.response.status)

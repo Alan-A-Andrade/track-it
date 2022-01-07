@@ -7,13 +7,13 @@ import LogoType from "../../GenericComponents/LogoType";
 
 export default function Header() {
 
-  const { token, setToken } = useContext(UserContext);
+  const { token } = useContext(UserContext);
 
   return (
     <HeaderStyled>
       <LogoType />
       <UserPicture>
-        <img src={token.image} alt="user picture" />
+        <img src={token.image} alt="Avatar" />
       </UserPicture>
     </HeaderStyled>
   )

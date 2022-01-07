@@ -12,7 +12,7 @@ export default function UserTodayHabit(Props) {
 
   const [checked, setChecked] = useState(Props.data.done)
 
-  const { token, percentageToday, setPercentageToday } = useContext(UserContext);
+  const { token } = useContext(UserContext);
 
 
 

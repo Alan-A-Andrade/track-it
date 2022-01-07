@@ -25,7 +25,7 @@ export default function HabitsPage() {
 
   const [habitsData, setHabitsData] = useState([]);
 
-  const { token, setToken } = useContext(UserContext);
+  const { token } = useContext(UserContext);
 
   const [loading, setLoading] = useState(false)
 
@@ -56,7 +56,7 @@ export default function HabitsPage() {
       setHabitsData(answer.data)
 
     });
-
+    // eslint-disable-next-line
   }, reload);
 
   function handleHabitsContent() {
@@ -72,7 +72,7 @@ export default function HabitsPage() {
 
       return (
         <>
-          {habitsData.map((el) => <UserSavedHabit data={el} deleteFunction={removeHabit} />)}
+          {habitsData.map((el, id) => <UserSavedHabit key={id} data={el} deleteFunction={removeHabit} />)}
         </>
       )
     }

@@ -39,13 +39,22 @@ export default function TodayPage() {
     request.then(answer => {
       setTodayHabitData(answer.data)
 
-      console.log(todayHabitData)
-
     });
-
+    // eslint-disable-next-line
   }, reload);
 
-  setPercentageToday(parseInt(todayHabitData.filter((el) => el.done == true).length / todayHabitData.length * 100))
+
+  function nanPreventEvent() {
+
+    if (isNaN(parseInt(todayHabitData.filter((el) => el.done === true).length / todayHabitData.length * 100))) {
+      return 0
+    }
+    else {
+      return parseInt(todayHabitData.filter((el) => el.done === true).length / todayHabitData.length * 100)
+    }
+  }
+
+  setPercentageToday(nanPreventEvent())
 
   let today = dayjs().locale('pt-br').format('dddd, DD/MM')
 
@@ -54,10 +63,10 @@ export default function TodayPage() {
       <Header />
       <TitleWrapper>
         <h1>{today}</h1>
-        {percentageToday == 0 ? <p>Nenhum hábito concluído ainda</p> : <p><mark>{percentageToday}% dos hábitos concluídos</mark></p>}
+        {percentageToday === 0 ? <p>Nenhum hábito concluído ainda</p> : <p><mark>{percentageToday}% dos hábitos concluídos</mark></p>}
       </TitleWrapper >
       <HabitsList>
-        {todayHabitData.map((el) => <UserTodayHabit data={el} reloadFunction={setReload} />)}
+        {todayHabitData.map((el, id) => <UserTodayHabit key={id} data={el} reloadFunction={setReload} />)}
       </HabitsList>
       <Background />
       <Menu />
