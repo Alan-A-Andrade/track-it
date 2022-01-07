@@ -26,6 +26,8 @@ export default function TodayPage() {
 
   const [todayHabitData, setTodayHabitData] = useState([])
 
+
+
   useEffect(() => {
 
     setReload([false])

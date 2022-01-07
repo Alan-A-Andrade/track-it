@@ -3,7 +3,7 @@ import LogoMark from "../../GenericComponents/LogoMark";
 import InputBox from "../../GenericComponents/Input";
 import ConfirmButton from "../../GenericComponents/ConfirmButton";
 import { Link } from "react-router-dom";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -11,6 +11,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import UserContext from "../../contexts/UserContext";
+
+
 
 export default function SignInPage(Props) {
   let navigate = useNavigate();
@@ -23,6 +25,20 @@ export default function SignInPage(Props) {
     email: "",
     password: ""
   })
+
+  useEffect(() => {
+
+    if (localStorage.getItem("userInfo") !== null) {
+
+      const tokenOnLocalStorage = JSON.parse(localStorage.getItem("userInfo"));
+
+      setToken(tokenOnLocalStorage)
+      navigate("/hoje")
+    }
+    // eslint-disable-next-line
+  }, []);
+
+
 
   function logIn(event) {
 
@@ -39,16 +55,24 @@ export default function SignInPage(Props) {
   }
 
   function requestSuccess(answer) {
+
     setLoading(false)
+
     setToken(answer.data)
+
+    localStorage.setItem("userInfo", JSON.stringify(answer.data))
+
     navigate("/hoje")
 
   }
 
 
   function requestFail(answer) {
+
     console.log(answer.response.status)
+
     notify("email e/ou senha incorreto, por favor tente novamente")
+
     setLoading(false)
   }
 

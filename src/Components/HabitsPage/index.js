@@ -55,7 +55,11 @@ export default function HabitsPage() {
     request.then(answer => {
       setHabitsData(answer.data)
 
-    });
+    })
+
+    request.catch("")
+
+      ;
     // eslint-disable-next-line
   }, reload);
 
