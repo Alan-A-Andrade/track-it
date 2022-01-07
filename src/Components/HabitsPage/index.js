@@ -1,4 +1,3 @@
-
 import Header from "../Header"
 import Menu from "../Menu";
 import Background from "../../GenericComponents/Background";
@@ -13,6 +12,12 @@ import axios from "axios";
 
 import { useContext } from "react";
 import UserContext from "../../contexts/UserContext";
+
+import UserSavedHabit from "../UserSavedHabit";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function HabitsPage() {
 
@@ -33,6 +38,14 @@ export default function HabitsPage() {
 
   useEffect(() => {
 
+    setReload([false])
+    setCreationMode(false)
+    setLoading(false)
+    setNewHabit({
+      name: "",
+      days: []
+    })
+
     const request = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits`, {
       headers: {
         Authorization: `Bearer ${token.token}`
@@ -42,7 +55,6 @@ export default function HabitsPage() {
     request.then(answer => {
       setHabitsData(answer.data)
 
-      console.log(answer.data)
     });
 
   }, reload);
@@ -57,8 +69,12 @@ export default function HabitsPage() {
     }
 
     else {
+
+      console.log(habitsData)
       return (
-        ""
+        <>
+          {habitsData.map((el) => <UserSavedHabit data={el} deleteFunction={removeHabit} />)}
+        </>
       )
     }
 
@@ -82,28 +98,61 @@ export default function HabitsPage() {
 
   }
 
+  function removeHabit(id) {
 
-  function requestSuccess(answer) {
-    setReload([true])
-    setCreationMode(false)
-    setLoading(false)
-    setNewHabit({
-      name: "",
-      days: []
+    setLoading(true)
+
+    const request = axios.delete(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token.token}`
+      }
     })
+
+    request.then(requestSuccess);
+
+    request.catch(requestFail)
+
+  }
+
+
+  function requestSuccess() {
+    setReload([true])
+
   }
 
   function requestFail(answer) {
     console.log(answer.response.status)
 
+    notify("Aconteceu algo errado com requisição, por favor tentar novamente")
     setLoading(false)
 
   }
+
+  const notify = (text) => toast.error(`${text}`, {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
 
   function handleCreationForm() {
 
     return (
       <NewHabitBox isLoading={loading}>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
         <form onSubmit={addHabit}>
           <InputBox
             type="text"
@@ -128,8 +177,6 @@ export default function HabitsPage() {
   }
 
 
-
-
   return (
     <HabitsStyled>
       <Header></Header>
@@ -148,6 +195,7 @@ export default function HabitsPage() {
 
 
 }
+
 
 const NewHabitBox = styled.section`
 
@@ -205,7 +253,7 @@ padding: 77px 0px;
 
 const HabitsList = styled.div`
 
-padding: 0px 18px;
+padding: 0px 18px 80px 18px;
 
 p{
 font-style: normal;
