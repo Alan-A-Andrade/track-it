@@ -9,9 +9,9 @@ import 'react-circular-progressbar/dist/styles.css';
 
 export default function Menu() {
 
-  const { token, setToken } = useContext(UserContext);
+  const { percentageToday } = useContext(UserContext);
 
-  const percentage = 66;
+  const percentage = percentageToday;
 
 
   return (

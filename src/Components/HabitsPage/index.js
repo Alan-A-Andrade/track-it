@@ -70,7 +70,6 @@ export default function HabitsPage() {
 
     else {
 
-      console.log(habitsData)
       return (
         <>
           {habitsData.map((el) => <UserSavedHabit data={el} deleteFunction={removeHabit} />)}
@@ -100,17 +99,27 @@ export default function HabitsPage() {
 
   function removeHabit(id) {
 
-    setLoading(true)
+    const confirmBox = window.confirm("gostaria realmente de remover o assento e apagar os dados?")
 
-    const request = axios.delete(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${id}`, {
-      headers: {
-        Authorization: `Bearer ${token.token}`
-      }
-    })
+    if (confirmBox === true) {
 
-    request.then(requestSuccess);
 
-    request.catch(requestFail)
+      setLoading(true)
+
+      const request = axios.delete(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token.token}`
+        }
+      })
+
+      request.then(requestSuccess);
+
+      request.catch(requestFail)
+    }
+
+    else {
+      return
+    }
 
   }
 

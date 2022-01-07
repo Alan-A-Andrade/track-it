@@ -15,11 +15,12 @@ import UserContext from "./contexts/UserContext";
 export default function App() {
 
   const [token, setToken] = useState([])
+  const [percentageToday, setPercentageToday] = useState([0])
 
   return (
     <BrowserRouter>
       <AppStyled>
-        <UserContext.Provider value={{ token, setToken }}>
+        <UserContext.Provider value={{ token, setToken, percentageToday, setPercentageToday }}>
           <Routes>
             <Route path="/" element={<SignInPage sessionToken={setToken} />}></Route>
             <Route path="/cadastro" element={<SignUpPage />}></Route>
@@ -29,7 +30,6 @@ export default function App() {
           </Routes>
         </UserContext.Provider>
       </AppStyled>
-
     </BrowserRouter >
   );
 }
