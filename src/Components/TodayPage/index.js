@@ -77,7 +77,7 @@ padding: 77px 0px;
 `
 const HabitsList = styled.div`
 
-padding: 0px 18px 80px 18px;
+padding: 24px 18px 80px 18px;
 
 p{
 font-style: normal;
@@ -98,9 +98,9 @@ height: 75px;
 display: flex;
 flex-direction:column;
 align-items: left;
-justify-content:center;
+justify-content:flex-start;
 
-padding: 0px 18px;
+padding: 24px 18px;
 
 h1{
   font-style: normal;

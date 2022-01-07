@@ -292,8 +292,6 @@ font-weight: normal;
 font-size: 22.976px;
 line-height: 29px;
 
-/* identical to box height */
-
 color: #126BA5;
 }
 
