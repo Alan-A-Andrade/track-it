@@ -10,9 +10,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
 
 
-
-
-
 export default function SignUpPage() {
 
   let navigate = useNavigate();
