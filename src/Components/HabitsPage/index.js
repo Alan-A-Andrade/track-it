@@ -103,7 +103,7 @@ export default function HabitsPage() {
 
   function removeHabit(id) {
 
-    const confirmBox = window.confirm("gostaria realmente de remover o assento e apagar os dados?")
+    const confirmBox = window.confirm("gostaria realmente de deletar esse hábito?")
 
     if (confirmBox === true) {
 

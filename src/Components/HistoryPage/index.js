@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Calendar from 'react-calendar'
 import { useContext } from "react";
 import UserContext from "../../contexts/UserContext";
+import { useNavigate } from "react-router-dom";
 
 import { useState, useEffect } from 'react';
 import axios from "axios";
@@ -17,6 +18,8 @@ export default function HistoryPage() {
   const { token } = useContext(UserContext);
 
   const [historyData, setHistoryData] = useState([])
+
+  let navigate = useNavigate()
 
 
   useEffect(() => {
@@ -74,6 +77,18 @@ export default function HistoryPage() {
     return dateobj ? dateobj.className : "";
   }
 
+  function goToDay(date) {
+    const dateobj =
+      historyData.find((x) => {
+        return (
+          date.getDay() === new Date(x.date).getDay() &&
+          date.getMonth() === new Date(x.date).getMonth() &&
+          date.getDate() === new Date(x.date).getDate()
+        );
+      });
+    return dateobj ? navigate(dateobj.date) : "break";
+  }
+
   return (
     <HistoryStyled>
       <Header></Header>
@@ -87,7 +102,7 @@ export default function HistoryPage() {
 
           formatDay={(locale, date) => dayjs(date).format("DD")}
           tileClassName={({ activeStartDate, date, view }) => setClass(date)}
-          onClickDay={(value, event) => alert(`Clicked day: ${value}`)}
+          onClickDay={(value, event) => goToDay(value)}
 
         />
       </CalendarWrapper>
