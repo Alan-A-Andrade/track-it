@@ -4,11 +4,6 @@ import checkIcon from "../../assets/check-icon.svg"
 
 export default function UserHistoryPageHabit(Props) {
 
-  function showIcon(bool) {
-
-
-  }
-
   return (
     <UserHistoryPageHabitStyled>
       <h1>{Props.data.name}</h1>

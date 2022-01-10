@@ -9,12 +9,13 @@ import UserTodayHabit from "../UserTodayHabit";
 import { useContext } from "react";
 import UserContext from "../../contexts/UserContext";
 
+
 import { useState, useEffect } from 'react';
 import axios from "axios";
 
-
 import dayjs from "dayjs";
 import 'dayjs/locale/pt-br'
+
 
 
 
@@ -22,15 +23,12 @@ export default function TodayPage() {
 
   const { token, percentageToday, setPercentageToday } = useContext(UserContext);
 
-  const [reload, setReload] = useState([false])
+  const [reload, setReload] = useState(false)
 
   const [todayHabitData, setTodayHabitData] = useState([])
 
-
-
   useEffect(() => {
-
-    setReload([false])
+    setReload(false)
 
     const request = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/today`, {
       headers: {
@@ -40,10 +38,16 @@ export default function TodayPage() {
 
     request.then(answer => {
       setTodayHabitData(answer.data)
+      setPercentageToday(nanPreventEvent())
 
     });
+
+    request.catch(answer => {
+      console.log(answer.data.message)
+    });
+
     // eslint-disable-next-line
-  }, reload);
+  }, [reload]);
 
 
   function nanPreventEvent() {
@@ -56,7 +60,6 @@ export default function TodayPage() {
     }
   }
 
-  setPercentageToday(nanPreventEvent())
 
   let today = dayjs().locale('pt-br').format('dddd, DD/MM')
 

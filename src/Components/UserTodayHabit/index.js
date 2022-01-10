@@ -41,7 +41,7 @@ export default function UserTodayHabit(Props) {
 
   function requestSuccess(answer) {
     setChecked(!checked)
-    Props.reloadFunction([true])
+    Props.reloadFunction(true)
   }
 
   function requestFail(answer) {

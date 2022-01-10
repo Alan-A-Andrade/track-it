@@ -41,16 +41,19 @@ z-index:10;
 `
 
 const UserPicture = styled.div`
-
+  height: 51px;
+  width: 51px;
 display: flex;
 align-items: center;
 justify-content: center;
+overflow:hidden;
+background-color: red;
+border-radius:100%;
 
 img{
-  width: 51px;
-  width: 51px;
+  height: 51px;
   object-fit: contain;
-  border-radius: 100%;
+
 }
 
 `

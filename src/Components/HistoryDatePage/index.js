@@ -55,9 +55,6 @@ export default function HistoryDatePage() {
     }
   }
 
-  let dateArray = [{ date: "2021-06-11T09:47:17.456000Z", colorName: "pink" }, { date: "2021-06-12T09:47:17.456000Z", colorName: "blue" }, { date: "2021-06-16T09:47:17.456000Z", colorName: "blue" }]
-
-
   const { dateId } = useParams()
 
   function historyPercentage(array) {

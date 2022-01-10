@@ -11,11 +11,19 @@ import HistoryPage from "./Components/HistoryPage";
 import HistoryDatePage from "./Components/HistoryDatePage";
 
 import UserContext from "./contexts/UserContext";
+import { useEffect } from "react";
 
 export default function App() {
 
   const [token, setToken] = useState([])
   const [percentageToday, setPercentageToday] = useState([0])
+
+  useEffect(() => {
+    const tokenOnLocalStorage = JSON.parse(localStorage.getItem("userInfo"));
+
+    setToken(tokenOnLocalStorage)
+  }, []);
+
 
   return (
     <BrowserRouter>

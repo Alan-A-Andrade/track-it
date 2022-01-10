@@ -31,6 +31,7 @@ export default function HistoryPage() {
     });
 
     request.then(answer => requestSuccess(answer));
+
     // eslint-disable-next-line
   }, []);
 
@@ -62,8 +63,6 @@ export default function HistoryPage() {
     }
     return (arrayPost)
   }
-
-  let dateArray = [{ date: "2021-06-11T09:47:17.456000Z", colorName: "pink" }, { date: "2021-06-12T09:47:17.456000Z", colorName: "blue" }, { date: "2021-06-16T09:47:17.456000Z", colorName: "blue" }]
 
   function setClass(date) {
     const dateobj =
@@ -99,6 +98,7 @@ export default function HistoryPage() {
         <Calendar
 
           locale="pt-Br"
+          calendarType="US"
 
           formatDay={(locale, date) => dayjs(date).format("DD")}
           tileClassName={({ activeStartDate, date, view }) => setClass(date)}

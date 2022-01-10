@@ -30,15 +30,15 @@ export default function SignInPage(Props) {
 
     if (localStorage.getItem("userInfo") !== null) {
 
-      const tokenOnLocalStorage = JSON.parse(localStorage.getItem("userInfo"));
+      //      const tokenOnLocalStorage = JSON.parse(localStorage.getItem("userInfo"));
 
-      setToken(tokenOnLocalStorage)
+      //    setToken(tokenOnLocalStorage)
       navigate("/hoje")
     }
+
+
     // eslint-disable-next-line
   }, []);
-
-
 
   function logIn(event) {
 

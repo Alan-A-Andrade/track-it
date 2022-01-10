@@ -57,7 +57,6 @@ export default function HabitsPage() {
 
     })
 
-    request.catch("")
 
       ;
     // eslint-disable-next-line
