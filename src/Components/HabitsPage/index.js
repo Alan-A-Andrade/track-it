@@ -135,7 +135,7 @@ export default function HabitsPage() {
   function requestFail(answer) {
     console.log(answer.response.status)
 
-    // notify("Aconteceu algo errado com requisição, por favor tentar novamente")
+    notify("Aconteceu algo errado com requisição, por favor tentar novamente")
     setLoading(false)
 
   }

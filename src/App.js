@@ -16,9 +16,6 @@ import { useEffect } from "react";
 const AppStyled = styled.div`
 
 
-
-// font-family: 'Playball', cursive; Font for LogoType
-
 font-family: 'Lexend Deca', sans-serif;
 width: 100vw;
 height: 100vh;
