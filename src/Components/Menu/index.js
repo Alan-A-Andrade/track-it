@@ -19,7 +19,7 @@ export default function Menu() {
       <Link style={{ textDecoration: 'none' }} to="/habitos">
         <h1>Hábitos</h1>
       </Link>
-      <Link tyle={{ textDecoration: 'none' }} to="/hoje">
+      <Link Style={{ textDecoration: 'none' }} to="/hoje">
         <TodayProgressBar>
           <h1 className="progress-bar-text">Hoje</h1>
           <CircularProgressbar
