@@ -80,7 +80,7 @@ export default function HistoryDatePage() {
           percentageToday !== 0 ? <p> {percentageToday}% dos hábito feitos</p> : <p> Nenhum hábito feito nesse dia</p>}
       </TitleWrapper >
       <HabitsList>
-        {historyData.map((el, id) => <UserHistoryPageHabit data={el} />)}
+        {historyData.map((el, id) => <UserHistoryPageHabit key={id} data={el} />)}
       </HabitsList>
 
 
