@@ -30,6 +30,7 @@ export default function HistoryDatePage() {
     });
 
     request.then(answer => requestSuccess(answer));
+
     // eslint-disable-next-line
   }, []);
 
