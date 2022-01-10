@@ -38,7 +38,7 @@ export default function TodayPage() {
 
     request.then(answer => {
       setTodayHabitData(answer.data)
-      setPercentageToday(nanPreventEvent())
+      setPercentageToday(nanPreventEvent(answer.data))
 
     });
 
@@ -50,13 +50,13 @@ export default function TodayPage() {
   }, [reload]);
 
 
-  function nanPreventEvent() {
+  function nanPreventEvent(data) {
 
-    if (isNaN(parseInt(todayHabitData.filter((el) => el.done === true).length / todayHabitData.length * 100))) {
+    if (isNaN(parseInt(data.filter((el) => el.done === true).length / data.length * 100))) {
       return 0
     }
     else {
-      return parseInt(todayHabitData.filter((el) => el.done === true).length / todayHabitData.length * 100)
+      return parseInt(data.filter((el) => el.done === true).length / data.length * 100)
     }
   }
 
