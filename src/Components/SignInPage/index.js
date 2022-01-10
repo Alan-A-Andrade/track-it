@@ -11,8 +11,42 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import UserContext from "../../contexts/UserContext";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 
+const SignInStyled = styled.div`
+
+width:100%;
+height:100%;
+
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items:center;
+
+padding-top: 68px;
+
+gap: 25px;
+
+form{
+  display:flex;
+  flex-direction:column;
+
+  gap: 6px;
+
+}
+
+h1{
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+text-decoration-line: underline;
+
+color: #52B6FF;
+}
+
+`
 
 
 export default function SignInPage(Props) {
@@ -132,37 +166,3 @@ export default function SignInPage(Props) {
 
 }
 
-const SignInStyled = styled.div`
-
-width:100%;
-height:100%;
-
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
-align-items:center;
-
-padding-top: 68px;
-
-gap: 25px;
-
-form{
-  display:flex;
-  flex-direction:column;
-
-  gap: 6px;
-
-}
-
-h1{
-font-style: normal;
-font-weight: normal;
-font-size: 14px;
-line-height: 17px;
-text-align: center;
-text-decoration-line: underline;
-
-color: #52B6FF;
-}
-
-`
