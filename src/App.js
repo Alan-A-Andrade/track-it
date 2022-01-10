@@ -1,6 +1,7 @@
-import styled from "styled-components";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { useState } from "react";
+import styled from "styled-components/macro";
 
 import SignInPage from "./Components/SignInPage";
 import SignUpPage from "./Components/SignUpPage";
@@ -11,6 +12,26 @@ import HistoryDatePage from "./Components/HistoryDatePage";
 
 import UserContext from "./contexts/UserContext";
 import { useEffect } from "react";
+
+const AppStyled = styled.div`
+
+@import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+// font-family: 'Playball', cursive; Font for LogoType
+font-family: 'Lexend Deca', sans-serif;
+
+width: 100vw;
+height: 100vh;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+
+
+`
 
 export default function App() {
 
@@ -43,22 +64,3 @@ export default function App() {
 }
 
 
-const AppStyled = styled.div`
-
-@import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-// font-family: 'Playball', cursive; Font for LogoType
-font-family: 'Lexend Deca', sans-serif;
-
-width: 100vw;
-height: 100vh;
-
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-
-
-
-`

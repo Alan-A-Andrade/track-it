@@ -135,7 +135,7 @@ export default function HabitsPage() {
   function requestFail(answer) {
     console.log(answer.response.status)
 
-    notify("Aconteceu algo errado com requisição, por favor tentar novamente")
+    // notify("Aconteceu algo errado com requisição, por favor tentar novamente")
     setLoading(false)
 
   }
@@ -150,10 +150,13 @@ export default function HabitsPage() {
     progress: undefined,
   });
 
+
+
   function handleCreationForm() {
 
     return (
       <NewHabitBox isLoading={loading}>
+
         <ToastContainer
           position="top-center"
           autoClose={5000}
@@ -165,6 +168,7 @@ export default function HabitsPage() {
           draggable
           pauseOnHover
         />
+
         <form onSubmit={addHabit}>
           <InputBox
             type="text"

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+
 import LogoMark from "../../GenericComponents/LogoMark";
 import InputBox from "../../GenericComponents/Input";
 import ConfirmButton from "../../GenericComponents/ConfirmButton";
@@ -11,6 +11,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import UserContext from "../../contexts/UserContext";
+import styled from "styled-components/macro";
 
 
 
@@ -30,9 +31,7 @@ export default function SignInPage(Props) {
 
     if (localStorage.getItem("userInfo") !== null) {
 
-      //      const tokenOnLocalStorage = JSON.parse(localStorage.getItem("userInfo"));
 
-      //    setToken(tokenOnLocalStorage)
       navigate("/hoje")
     }
 
@@ -115,6 +114,7 @@ export default function SignInPage(Props) {
           Não tem uma conta? Cadastre-se!
         </h1>
       </Link>
+
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -126,6 +126,7 @@ export default function SignInPage(Props) {
         draggable
         pauseOnHover
       />
+
     </SignInStyled>
   )
 

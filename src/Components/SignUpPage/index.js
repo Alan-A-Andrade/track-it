@@ -59,6 +59,8 @@ export default function SignUpPage() {
     progress: undefined,
   });
 
+
+
   return (
     <SignUp>
       <LogoMark></LogoMark>
@@ -107,6 +109,7 @@ export default function SignUpPage() {
           Já tem uma conta? Faça login!
         </h1>
       </Link>
+
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -118,6 +121,8 @@ export default function SignUpPage() {
         draggable
         pauseOnHover
       />
+
+
     </SignUp>
   )
 
