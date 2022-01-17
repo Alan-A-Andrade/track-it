@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Track It
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An application to help the user track their daily habits, where it's possible to sign-up and sign-in to create a personal routines <br/>
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [About](#about)
+  - [Built with](#built-with)
+- [How to run](#how-to-run)
+- [Author](#author)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Habit tracker web application. HTML5, CSS3 and ReactJS. <br />
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Try it out now <a href="https://track-it-alan-andrade.vercel.app/" target="_blank"><strong>here</strong></a>.
+###### obs: can be used in desktop and mobile, although it was designed for mobiles only.
 
-### `npm test`
+### About
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This app has the following features:
+  - Enables the user to sign in their account
+  - In case they don't have any, it's possible to create one in the sign up page
+    - To sign up, the user needs to inform their Email, Password, Name and an valid URL image chosen by them.
+  - After logging in, the ```TodayPage``` is shown, in which the user can:
+    -  Check their daily habits, if they have any
+    -  Click on the checkmark to mark it as done in that day
+    -  Track their current streak and record of days that task/habit has been done
+    -  And shows the user their daily progress in a circular progress bar on the botton center of the page
+  - In the case the user has no habits to be tracked, they can go to the ```HabitsPage```, being able to:
+    - Create their habits
+    - Choose the days to do the habit
+    - Save or Cancel the habits' creation
+    - And delete the habit by clicking on the trashcan icon
+  - In the ```HystoryPage``` the user can track their progress on a month calendar, where it's possible to track the days the habis have been done or not
 
-### `npm run build`
+### Built with
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ReactJS, HTML and Styled Components.
+  
+## How to run
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone this repository
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Install dependencies
+```bash
+npm i
+```
 
-### `npm run eject`
+3. Run the app with
+```bash
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4. You can optionally build the project running
+```bash
+npm run build
+```
+5. Finally, access http://localhost:3000 on your favorite browser (unless it is Internet Explorer. In this case, review your life decisions)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Author
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- LinkedIn - [Alan de Andrade](https://www.linkedin.com/in/alan-de-andrade/)
